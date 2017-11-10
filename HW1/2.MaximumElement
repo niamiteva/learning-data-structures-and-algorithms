@@ -1,0 +1,41 @@
+#include <iostream>
+#include <stack>
+
+using namespace std;
+
+
+int main()
+{
+	int n = 0; cin >> n;
+	stack<int> st;
+	stack<int> help;
+	int command = 0, max = 0, numToPush = 0;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> command;
+		if (command == 1)
+		{
+			cin >> numToPush;
+			st.push(numToPush);
+			if (numToPush >= max)
+			{ 
+				help.push(numToPush);
+				max = numToPush;
+			}	
+			else
+				help.push(help.top());
+		}
+		if (command == 2)
+		{
+			st.pop();
+			help.pop();
+			if(help.size() > 0)
+				max = help.top();
+			else max = 0;
+		}
+		if (command == 3)
+			cout<<help.top()<<endl;
+	}
+
+    return 0;
+}
