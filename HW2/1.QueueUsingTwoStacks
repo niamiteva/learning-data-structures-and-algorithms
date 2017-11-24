@@ -10,7 +10,7 @@ int main()
 	stack<int> st;
 	stack<int> help;
 	int command = 0, numToPush = 0;
-	for (int i = 0; i < n; i++)
+	for (int i = n; i >0; i--)
 	{
 		cin >> command;
 		if (command == 1)
@@ -20,34 +20,27 @@ int main()
 		}
 		else if (command == 2)
 		{
-			while (!st.empty())
-			{
-				help.push(st.top());
-				st.pop();
-			}
+			if(help.size() == 0)
+				while (!st.empty())
+				{
+					help.push(st.top());
+					st.pop();
+				}
+
 			help.pop();
-			while (!help.empty())
-			{
-				st.push(help.top());
-				help.pop();
-			}
 		}
 		else if (command == 3)
 		{
-			while (!st.empty())
-			{
-				help.push(st.top());
-				st.pop();
-			}
-			cout << help.top()<<endl;
-			while (!help.empty())
-			{
-				st.push(help.top());
-				help.pop();
-			}
+			if(help.size()==0)
+				while (!st.empty())
+				{
+					help.push(st.top());
+					st.pop();
+				}
+			cout << help.top() << endl;
 		}
 	}
-
-
-    return 0;
+	
+	return 0;
 }
+
