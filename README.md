@@ -1,6 +1,6 @@
-# sda
+# sda/
 
-# HW(n) 
-  # -> cpp fales
-  # -> HakerRank 
-  #    => submited code
+#   + HW(n)/ 
+#     + cpp fales
+#     + HakerRank/ 
+#       + submited code
