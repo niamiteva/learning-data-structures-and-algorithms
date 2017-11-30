@@ -1,0 +1,64 @@
+#include <iostream>
+#include <stack>
+#include <string.h>
+
+using namespace std;
+
+#define MAX 512
+
+
+int main()
+{
+	int n = 0; cin >> n;
+	char a[MAX];
+	cin.ignore();
+	
+	bool balanced = false;
+	for (int j = 0; j < n; j++) 
+	{
+		cin.getline(a, MAX);
+		stack<char> st;
+		balanced = false;
+		for (int i = 0; i < strlen(a); i++)
+		{
+			if (a[i] == '(' || a[i] == '{' || a[i] == '[')
+				st.push(a[i]);
+			else if (st.empty() && (a[i] == '}' || a[i] == ']' || a[i] == ')'))
+			{
+				balanced = false;
+				break;
+			}
+			else
+			{
+				if (st.top() == '{' && a[i] == '}')
+				{
+					balanced = true;
+					st.pop();
+				}
+				else if (st.top() == '[' && a[i] == ']')
+				{
+					balanced = true;
+					st.pop();
+				}
+				else if (st.top() == '(' && a[i] == ')')
+				{
+					balanced = true;
+					st.pop();
+				}
+				else
+				{
+					balanced = false;
+					break;
+				}
+			}
+
+		}
+		if (!st.empty()) balanced = false;
+
+		if (balanced) cout << "YES\n";
+		else cout << "NO\n";
+	}
+
+    return 0;
+}
+
