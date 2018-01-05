@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 
 using namespace std;
 
@@ -185,6 +186,24 @@ void BinTree<T>::height()
 	cout<<countNodes(root)<<endl;
 	//cout << (nodes - 1)/2 << endl;
 }
+template <typename T>
+void levelOrder(node<T>* p)
+{
+	queue<node<T>*> q;
+	node<T>* temp = p;
+	if (temp != NULL)
+	{
+		q.push(temp);
+	}
+	while (!q.empty())
+	{
+		cout << temp->inf << " ";
+		if (temp->left != NULL) q.push(temp->left);
+		if (temp->right != NULL) q.push(temp->right);
+		q.pop();
+		if (!q.empty()) temp = q.front();
+	}
+}
 
 
 int main()
@@ -195,6 +214,8 @@ int main()
 	cout << endl;
 	/////
 	binTree.height();
+	//
+	binTree.levelOrder(binTree.getRoot());
 
 	return 0;
 }
