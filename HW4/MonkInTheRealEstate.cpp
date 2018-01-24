@@ -17,27 +17,6 @@ bool member(const T& x, LList<T>& l)
 template <typename T>
 void createGraph(graph<T>& g, LList<T>& l)
 {
-    /**
-    f.open("input.txt", ios::in);
-    int x,y;
-    while(f)
-    {
-        f>>x;
-        f>>y;
-        if(g.point(y)== NULL) cities++;
-        if(g.point(x)== NULL)
-        {
-            g.addTop(x);
-            cities++;
-            g.addRib(x,y);
-        }
-        else
-        {
-            elem_link1<T>* n = g.point(x);
-            g.addRib(n->inf,y);
-        }
-    }
-    */
     int n; cout<<"number of roads between A and B: "; cin>>n;
     for(int i = 1; i<=n;i++)
     {
