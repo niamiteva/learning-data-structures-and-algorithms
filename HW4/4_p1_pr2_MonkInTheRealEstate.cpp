@@ -1,7 +1,6 @@
 #include <iostream>
 #include "llist.cpp"
 #include "graph.cpp"
-#include <fstream>
 
 using namespace std;
 
@@ -17,11 +16,16 @@ bool member(const T& x, LList<T>& l)
 template <typename T>
 void createGraph(graph<T>& g, LList<T>& l)
 {
-    int n; cout<<"number of roads between A and B: "; cin>>n;
+    int n; 
+    cout<<"number of roads between A and B: "; 
+    cin>>n;
+    int x,y;
     for(int i = 1; i<=n;i++)
     {
-        int x; cout<<"top: "; cin>>x;
-        int y; cout<<"rib of "<<x<<": "; cin>>y;
+        cout<<"top: "; 
+        cin>>x;
+        cout<<"rib of "<<x<<": "; 
+        cin>>y;
 
         g.addTop(x);
         g.addRib(x,y);
@@ -33,10 +37,11 @@ void createGraph(graph<T>& g, LList<T>& l)
 int main()
 {
     graph<int> g;
-    //ifstream f;
     LList<int> l;
+    
     createGraph(g, l);
     g.print();
+    
     cout<<l.len()<<endl;
 
 
