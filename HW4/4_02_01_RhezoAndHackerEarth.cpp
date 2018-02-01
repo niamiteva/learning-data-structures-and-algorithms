@@ -45,7 +45,7 @@ bool connected(const T& a, const T& b, graph<T>& g, LList<T>& l)
 template <class T>
 void create(graph<T>& g, const int& computers, const int& connections, const int group[][2])
 {
-    for(int i=0; i<computers; i++)
+    for(int i=1; i<=computers; i++)
         g.addTop(i);
 
     for(int i=0; i<connections;i++)
