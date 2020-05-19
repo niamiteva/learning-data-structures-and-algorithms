@@ -2,6 +2,6 @@
 
 # sda/ 
 #   + HW(n)/ 
-#     + cpp fales
+#     + cpp files
 #     + HakerRank/ 
 #       + submited code
